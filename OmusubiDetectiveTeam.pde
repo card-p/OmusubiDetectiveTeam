@@ -1,4 +1,4 @@
-int window_x = 500;
+int window_x = 370;
 int window_y = 420;
 
 void settings() {
@@ -26,12 +26,21 @@ void draw(){
     ellipseMode(CENTER);
     for(int i=0; i<rice_x.length; i++){
         for(int j=0; j<rice_y.length; j++){
-            fill(0);
+            stroke(0);
+            noFill();
             ellipse(rice_x[i], rice_y[j], rice_r, rice_r);
         }
     }
 
-    float card_x[] =
-    float card_y[] =
+    float card_x[] = {240, 270, 300, 330};
+    float card_sizex = 20;
+    float card_sizey = 30;
 
+    for(int i=0; i<card_x.length; i++){
+        for(int j=0; j<rice_y.length; j++){
+            stroke(0);
+            noFill();
+            rect(card_x[i], rice_y[j]-15, card_sizex, card_sizey);
+        }
+    }
 }
