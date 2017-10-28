@@ -7,6 +7,7 @@ void settings() {
 
 void setup(){
     background(255);
+    Enemy mt = new Enemy();
 }
 
 void draw(){
