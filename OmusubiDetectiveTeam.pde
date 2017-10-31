@@ -1,5 +1,8 @@
 int window_x = 370;
 int window_y = 420;
+Enemy enemy = new Enemy();
+boolean game = true;
+
 
 void settings() {
     size(window_x, window_y);
@@ -7,12 +10,12 @@ void settings() {
 
 void setup(){
     background(255);
-    Enemy mt = new Enemy();
 }
 
 void draw(){
     fill(0);
     line(0,60,width,60);
+    enemy.blackOut(game); // gameをfalseにすると正解表示
 
     float rice_x[] = {75,115,155,195};
     float rice_y[] = {385,335,285,235,185,135,85};
@@ -45,3 +48,5 @@ void draw(){
         }
     }
 }
+
+
