@@ -1,9 +1,7 @@
 public class Enemy extends GameSys{
-    float rice_x[] = {75, 115, 155, 195};
-    float rice_y = 35;
-    float rice_r = 30;
     ArrayList<Integer> nums= new ArrayList<Integer>();
     int i= 0, num;
+    int ckeep[] = new int[3];
 
     public Enemy() {
         Random rand = new Random();
@@ -25,8 +23,9 @@ public class Enemy extends GameSys{
             fill(255);
             rect(0, 0, 230, 60);
             for(i=0; i<4; i++){
-                fill(colors[nums.get(i)][0], colors[nums.get(i)][1], colors[nums.get(i)][2]);
-                ellipse(rice_x[i], rice_y, rice_r, rice_r);
+                ckeep = getColor(nums.get(i));
+                fill(ckeep[0], ckeep[1], ckeep[2]);
+                ellipse(rice_x[i], 35, rice_r, rice_r);
             }
         }
     }
