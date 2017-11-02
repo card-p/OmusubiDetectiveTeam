@@ -3,6 +3,7 @@ int window_y = 420;
 Enemy enemy = new Enemy();
 MyTurn myturn = new MyTurn();
 Card card = new Card();
+Ball ball = new Ball();
 boolean game = false;
 
 void settings() {
@@ -41,8 +42,9 @@ void gameMenu(){
     for(int i=0; i<rice_x.length; i++){
         for(int j=0; j<rice_y.length; j++){
             stroke(0);
-            noFill();
-            ellipse(rice_x[i], rice_y[j], rice_r, rice_r);
+            ball.mkBall("no", i, j);
+
+
         }
     }
 

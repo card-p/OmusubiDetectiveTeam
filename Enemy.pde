@@ -1,7 +1,7 @@
 public class Enemy extends GameSys{
     ArrayList<Integer> nums= new ArrayList<Integer>();
     int i= 0, num;
-    int ckeep[] = new int[3];
+    Ball ball = new Ball();
 
     public Enemy() {
         Random rand = new Random();
@@ -23,9 +23,7 @@ public class Enemy extends GameSys{
             fill(255);
             rect(0, 0, 230, 60);
             for(i=0; i<4; i++){
-                ckeep = getColor(nums.get(i));
-                fill(ckeep[0], ckeep[1], ckeep[2]);
-                ellipse(rice_x[i], 35, rice_r, rice_r);
+                ball.mkBall(nums.get(i), i, -1);
             }
         }
     }
