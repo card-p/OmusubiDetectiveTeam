@@ -33,6 +33,7 @@ public class GameSys {
         }
         return cc;
     }
+
     public int[] getColor(int c) {
         return colors[c];
     }

@@ -1,8 +1,8 @@
 int window_x = 370;
 int window_y = 420;
 Enemy enemy = new Enemy();
-boolean game = false;
 MyTurn myturn = new MyTurn();
+boolean game = false;
 
 void settings() {
     size(window_x, window_y);
@@ -15,6 +15,9 @@ void setup(){
 void draw(){
     gameMenu();
 }
+
+
+
 
     float rice_x[] = {75,115,155,195};
     float rice_y[] = {385,335,285,235,185,135,85};
