@@ -43,8 +43,6 @@ void gameMenu(){
         for(int j=0; j<rice_y.length; j++){
             stroke(0);
             ball.mkBall("no", i, j);
-
-
         }
     }
 
@@ -56,8 +54,6 @@ void gameMenu(){
     for(int i=0; i<card_x.length; i++){
         for(int j=0; j<rice_y.length; j++){
             // stroke(0);
-            // noFill();
-            // rect(card_x[i], rice_y[j]-15, card_sizex, card_sizey);
             card.mkCard("no", i, j);
         }
     }
