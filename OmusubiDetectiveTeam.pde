@@ -2,8 +2,7 @@ int window_x = 370;
 int window_y = 420;
 Enemy enemy = new Enemy();
 MyTurn myturn = new MyTurn();
-Ball ball = new Ball();
-
+Card card = new Card();
 boolean game = false;
 
 void settings() {
@@ -42,13 +41,10 @@ void gameMenu(){
     for(int i=0; i<rice_x.length; i++){
         for(int j=0; j<rice_y.length; j++){
             stroke(0);
-          //  noFill();
-          //  ellipse(rice_x[i], rice_y[j], rice_r, rice_r);
-            ball.mkBall("no", i, j);
+            noFill();
+            ellipse(rice_x[i], rice_y[j], rice_r, rice_r);
         }
     }
-
-
 
     float card_x[] = {240, 270, 300, 330};
     float card_sizex = 20;
@@ -57,9 +53,10 @@ void gameMenu(){
     // card(rightside)
     for(int i=0; i<card_x.length; i++){
         for(int j=0; j<rice_y.length; j++){
-            stroke(0);
-            noFill();
-            rect(card_x[i], rice_y[j]-15, card_sizex, card_sizey);
+            // stroke(0);
+            // noFill();
+            // rect(card_x[i], rice_y[j]-15, card_sizex, card_sizey);
+            card.mkCard("no", i, j);
         }
     }
 
