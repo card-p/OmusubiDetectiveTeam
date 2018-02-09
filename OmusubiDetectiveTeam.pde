@@ -1,5 +1,5 @@
 int window_x = 370;
-int window_y = 420;
+int window_y = 470;
 Enemy enemy = new Enemy();
 MyTurn myturn = new MyTurn();
 Card card = new Card();
@@ -61,7 +61,9 @@ void gameMenu(){
             card.mkCard("no", i, j);
         }
     }
-
+    
+    rect(265, 425, 60, 30);
+    text("Enter", 285, 440);
 }
 
 void mouseClicked(){
