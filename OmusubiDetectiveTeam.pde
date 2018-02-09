@@ -61,7 +61,7 @@ void gameMenu(){
 }
 
 void mouseClicked(){
-    myturn.click();
+    myturn.selectColor();
 }
 
 
