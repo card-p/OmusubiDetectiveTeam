@@ -58,7 +58,9 @@ void gameMenu(){
         }
     }
     
+    noFill();
     rect(265, 425, 60, 30);
+    fill(0);
     text("Enter", 285, 440);
 }
 
