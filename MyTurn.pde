@@ -7,9 +7,10 @@ public class MyTurn extends GameSys{
     int fill_count_lc = 0;
     int fill_count_rc = 0;
     int fill_count_r = 0;
+    int oshinko, ocha;
     int[] filling_rice;
 
-    void selectColor(){
+    public void selectColor(){
         if(mouseX > rice_x[0] - rice_r/2 && mouseX < rice_x[0] + rice_r/2 && mouseY > rice_y[turn] - rice_r/2 && mouseY < rice_y[turn] + rice_r/2){
             if(fill_count_l == 7) fill_count_l = 0;
             filling_rice = getColor(fill_count_l);
@@ -38,6 +39,34 @@ public class MyTurn extends GameSys{
             ellipse(rice_x[3], rice_y[turn], rice_r, rice_r);
             fill_count_r += 1;
         }
+    }
+
+    public int[] enter (ArrayList<Integer> nums) {
+        int i=0;
+        oshinko = 0;
+        ocha = 0;
+        int[] myColors = {fill_count_l, fill_count_lc, fill_count_rc, fill_count_r};
+
+        for(i=0; i<4; i++) {
+            System.out.println(myColors[i]);
+            System.out.println(nums.get(i));
+        }
+        for(i=0; i<4; i++) {
+            if(nums.contains(myColors[i] - 1)) {
+                ocha++;
+            }
+            if(nums.get(i) == myColors[i] - 1) {
+                oshinko++;
+            }
+        }
+        ocha = ocha - oshinko;
+        int[] result = {oshinko, ocha};
+        
+        System.out.println(oshinko);
+        System.out.println(ocha);
+
+        return result;
+
     }
 }
 

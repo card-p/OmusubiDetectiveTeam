@@ -4,6 +4,7 @@ Enemy enemy = new Enemy();
 MyTurn myturn = new MyTurn();
 Card card = new Card();
 Ball ball = new Ball();
+int[] result = new int[2];
 boolean game = false;
 
 void settings() {
@@ -64,6 +65,9 @@ void gameMenu(){
 
 void mouseClicked(){
     myturn.selectColor();
+    if(mouseX > 265 && mouseX < 325 && mouseY > 425 && mouseY < 455) {
+        result = myturn.enter(enemy.nums);
+    }
 }
 
 

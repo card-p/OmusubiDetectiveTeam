@@ -10,6 +10,8 @@ public class GameSys {
     float card_x[] = {240, 270, 300, 330};
     float card_sizex = 20;
     float card_sizey = 30;
+    int oshinko = 0;
+    int ocha = 0;
     int turn = 0;
     private int colors[][] = {
         {255, 0, 0}, 
