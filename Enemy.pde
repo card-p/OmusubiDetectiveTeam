@@ -31,7 +31,7 @@ public class Enemy extends GameSys{
     }
 
     Card card = new Card();
-    public void fillCards(){
+    public void fillCards(int turn, int oshinko, int ocha){
         int i=0;
         for(i=0; i < oshinko; i++){
             card.mkCard("oshinko", i, turn);

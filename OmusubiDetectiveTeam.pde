@@ -57,7 +57,7 @@ void gameMenu(){
             card.mkCard("no", i, j);
         }
     }
-    enemy.fillCards();
+    enemy.fillCards(0,0,1);
     
     noFill();
     rect(265, 425, 60, 30);
