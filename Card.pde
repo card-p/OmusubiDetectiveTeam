@@ -7,6 +7,8 @@ public class Card extends GameSys {
     public void mkCard (String col, int x, int y) {
         if (col == "no") {
             noFill();
+        } else if (col == "init") {
+            fill(255);
         } else {
             int cc[] = getJudgeColor(col);
             fill(cc[0], cc[1], cc[2]);

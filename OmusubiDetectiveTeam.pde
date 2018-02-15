@@ -7,6 +7,12 @@ Ball ball = new Ball();
 int[] result = new int[2];
 boolean game = true;
 int turn=0;
+float rice_x[] = {75,115,155,195};
+float rice_y[] = {385,335,285,235,185,135,85};
+float rice_r = 30;
+float card_x[] = {240, 270, 300, 330};
+float card_sizex = 20;
+float card_sizey = 30;
 
 void settings() {
     size(window_x, window_y);
@@ -23,9 +29,6 @@ void draw(){
 
 
 
-    float rice_x[] = {75,115,155,195};
-    float rice_y[] = {385,335,285,235,185,135,85};
-    float rice_r = 30;
 
 void gameMenu(){
     fill(0);
@@ -48,9 +51,6 @@ void gameMenu(){
         }
     }
 
-    float card_x[] = {240, 270, 300, 330};
-    float card_sizex = 20;
-    float card_sizey = 30;
 
     // card(rightside)
     for(int i=0; i<card_x.length; i++){
@@ -85,10 +85,27 @@ void mouseClicked(){
             }
             turn++;
         }else {
-            
+            result[0] = 0;
+            result[1] = 0;
+
             for(int i=0; i<=turn; i++) {
                 enemy.fillCards(i,0,0);
             }
+
+            for(int i=0; i<card_x.length; i++){
+                for(int j=0; j<rice_y.length; j++){
+                    // stroke(0);
+                    card.mkCard("init", i, j);
+                }
+            }
+
+            for(int i=0; i<rice_x.length; i++){
+                for(int j=0; j<rice_y.length; j++){
+                    stroke(0);
+                    ball.mkBall("init", i, j);
+                }
+            }
+            
             turn = 0;
             game = true;
 
