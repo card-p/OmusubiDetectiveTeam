@@ -60,14 +60,4 @@ public class GameSys {
         return judgeColors[c];
     }
 
-    public void fillCards(){
-        for(int i=0; i <= oshinko; i++){
-            int col = getJudgeColor(0);
-        }
-        for(int j=0; j <= ocha; j++){
-            getJudgeColor(1);
-
-        }
-    }
-
 }
