@@ -5,7 +5,8 @@ MyTurn myturn = new MyTurn();
 Card card = new Card();
 Ball ball = new Ball();
 int[] result = new int[2];
-boolean game = false;
+boolean game = true;
+int turn=0;
 
 void settings() {
     size(window_x, window_y);
@@ -29,7 +30,7 @@ void draw(){
 void gameMenu(){
     fill(0);
     line(0,60,width,60);
-    enemy.blackOut(game); // gameをfalseにすると正解表示
+    enemy.blackOut(false); // gameをfalseにすると正解表示
 
 
     // number
@@ -58,18 +59,40 @@ void gameMenu(){
             card.mkCard("no", i, j);
         }
     }
-    enemy.fillCards(0,0,1);
     
-    noFill();
+    fill(255);
     rect(265, 425, 60, 30);
     fill(0);
-    text("Enter", 285, 440);
+    if(game == true){
+        text("Enter", 285, 440);
+    }else{
+        text("Next", 285, 440);
+    
+    }
 }
 
 void mouseClicked(){
-    myturn.selectColor();
+    if(game == true) myturn.selectColor(turn);
     if(mouseX > 265 && mouseX < 325 && mouseY > 425 && mouseY < 455) {
-        result = myturn.enter(enemy.nums);
+        if(game == true) {
+            result = myturn.enter(enemy.nums);
+            enemy.fillCards(turn,result[0],result[1]);
+            if(result[0] == 4){
+                System.out.println("CLEAR");
+                fill(255,34,12);
+                text("CLEAR", 285, 30);
+                game = false;
+            }
+            turn++;
+        }else {
+            
+            for(int i=0; i<=turn; i++) {
+                enemy.fillCards(i,0,0);
+            }
+            turn = 0;
+            game = true;
+
+        }
     }
 }
 

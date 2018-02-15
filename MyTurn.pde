@@ -10,7 +10,7 @@ public class MyTurn extends GameSys{
     int oshinko, ocha;
     int[] filling_rice;
 
-    public void selectColor(){
+    public void selectColor(int turn){
         if(mouseX > rice_x[0] - rice_r/2 && mouseX < rice_x[0] + rice_r/2 && mouseY > rice_y[turn] - rice_r/2 && mouseY < rice_y[turn] + rice_r/2){
             if(fill_count_l == 7) fill_count_l = 0;
             filling_rice = getColor(fill_count_l);
@@ -47,10 +47,6 @@ public class MyTurn extends GameSys{
         ocha = 0;
         int[] myColors = {fill_count_l, fill_count_lc, fill_count_rc, fill_count_r};
 
-        for(i=0; i<4; i++) {
-            System.out.println(myColors[i]);
-            System.out.println(nums.get(i));
-        }
         for(i=0; i<4; i++) {
             if(nums.contains(myColors[i] - 1)) {
                 ocha++;
