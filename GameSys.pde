@@ -22,8 +22,13 @@ public class GameSys {
         {0, 0, 255}, 
         {255, 0, 255}
     };
+    private int judgeColors[][] = {
+        {255, 204, 0}, // おしんこカラー
+        {153,153,51} // お茶カラー
+    };
     private String colorName[] = {"red", "orange", "yellow", "green", "lgreen", "blue", "purple"};
-    
+    private String judgeColorName[] = {"oshinko", "ocha"};
+
 
     public int[] getColor(String c) {
         int i = 0;
@@ -39,4 +44,20 @@ public class GameSys {
     public int[] getColor(int c) {
         return colors[c];
     }
+
+    public int[] getJudgeColor(String c) {
+        int i = 0;
+        int cc[] = new int[3];
+        for(i=0; i<2; i++) {
+            if(judgeColorName[i].equals(c)) {
+                cc = judgeColors[i];
+            }
+        }
+        return cc;
+    }
+
+    public int[] getJudgeColor(int c) {
+        return judgeColors[c];
+    }
+
 }
