@@ -13,6 +13,8 @@ float rice_r = 30;
 float card_x[] = {240, 270, 300, 330};
 float card_sizex = 20;
 float card_sizey = 30;
+PImage img1,img2,img3,st;
+int idou = 1;
 
 void settings() {
     size(window_x, window_y);
@@ -23,12 +25,32 @@ void setup(){
 }
 
 void draw(){
-    gameMenu();
+    if(idou == 1){
+        startGamen();
+    }else if(idou == 2){
+        gameMenu();
+    }
 }
 
 
+void startGamen(){
+    background(255);
+    img1 = loadImage("title.png");
+    img2 = loadImage("rule.png");
+    img3 = loadImage("rule1.png");
+    st = loadImage("start.png");
+    image(img1, width/4 - 10, height/5);
+    image(img2, width/5, height*2/5);
+    image(img3, width/3 - 20, height/2);
+    image(st, width/2 - 33, height*2/3);
 
-
+    /*
+    line(width/2 - 35, height*2/3, width/2 + 35, height*2/3);
+    line(width/2 - 35, height*2/3 + 25, width/2 + 35, height*2/3 + 25);
+    line(width/2 - 35, height*2/3, width/2 - 35, height*2/3 + 25);
+    line(width/2 + 35, height*2/3, width/2 + 35, height*2/3 + 25);
+    */
+}
 
 void gameMenu(){
     fill(0);
@@ -76,6 +98,13 @@ void gameMenu(){
 }
 
 void mouseClicked(){
+    if(idou == 1){
+        if(mouseX > (width/2 -35) && mouseX < (width/2 + 35) && mouseY > height*2/3 && mouseY < (height*2/3  + 25)){
+            idou = 2;
+            background(255);
+        }
+    }
+    if(idou == 2){
     if(game == true){
         myturn.selectColor(turn);
         if(mouseX > 265 && mouseX < 325 && mouseY > 425 && mouseY < 455) {
@@ -118,6 +147,7 @@ void mouseClicked(){
             turn = 0;
             game = true;
         }
+    }
     }
     
 }
