@@ -87,6 +87,10 @@ void mouseClicked(){
         }else {
             result[0] = 0;
             result[1] = 0;
+            myturn.fill_count_l = 0;
+            myturn.fill_count_lc = 0;
+            myturn.fill_count_rc = 0;
+            myturn.fill_count_r = 0;
 
             for(int i=0; i<=turn; i++) {
                 enemy.fillCards(i,0,0);
