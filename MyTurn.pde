@@ -60,11 +60,11 @@ public class MyTurn extends GameSys{
             }
         }
         ocha = ocha - oshinko;
-        int[] result = {oshinko, ocha};
-        
+        int[] result = {oshinko, ocha}; 
+        /*
         System.out.println(oshinko);
         System.out.println(ocha);
-
+        */
         return result;
 
     }

@@ -121,6 +121,12 @@ void mouseClicked(){
                 }
                 turn++;
                 myturn.colorInit();
+                if(turn == 7){
+                    game = false;
+                    System.out.println("GAME OVER");
+                    fill(255,34,12);
+                    text("GAME OVER", 272, 30);
+                }
             }
         }
     }else{
