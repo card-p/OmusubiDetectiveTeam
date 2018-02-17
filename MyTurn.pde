@@ -9,6 +9,7 @@ public class MyTurn extends GameSys{
     int fill_count_r = 0;
     int oshinko, ocha;
     int[] filling_rice;
+    int[] myColors = new int[4];
 
     public void selectColor(int turn){
         if(mouseX > rice_x[0] - rice_r/2 && mouseX < rice_x[0] + rice_r/2 && mouseY > rice_y[turn] - rice_r/2 && mouseY < rice_y[turn] + rice_r/2){
@@ -45,7 +46,10 @@ public class MyTurn extends GameSys{
         int i=0;
         oshinko = 0;
         ocha = 0;
-        int[] myColors = {fill_count_l, fill_count_lc, fill_count_rc, fill_count_r};
+        myColors[0] = fill_count_l;
+        myColors[1] = fill_count_lc;
+        myColors[2] = fill_count_rc;
+        myColors[3] = fill_count_r;
 
         for(i=0; i<4; i++) {
             if(nums.contains(myColors[i] - 1)) {
@@ -63,6 +67,31 @@ public class MyTurn extends GameSys{
 
         return result;
 
+    }
+
+    public boolean isError (int[] mc) {
+        int i;
+        ArrayList<Integer> judge = new ArrayList<Integer>();
+        for (i=0; i<mc.length; i++) {
+            if(mc[i] == 0) {
+                System.out.println("全部うめて");
+                return true;
+            }
+            if(!judge.contains(mc[i])) {
+                judge.add(mc[i]);
+            } else {
+                System.out.println("色被っている");
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void colorInit () {
+        fill_count_l = 0;
+        fill_count_lc = 0;
+        fill_count_rc = 0;
+        fill_count_r = 0;
     }
 }
 

@@ -6,6 +6,7 @@ Card card = new Card();
 Ball ball = new Ball();
 int[] result = new int[2];
 boolean game = true;
+
 int turn=0;
 float rice_x[] = {75,115,155,195};
 float rice_y[] = {385,335,285,235,185,135,85};
@@ -109,19 +110,23 @@ void mouseClicked(){
         myturn.selectColor(turn);
         if(mouseX > 265 && mouseX < 325 && mouseY > 425 && mouseY < 455) {
             result = myturn.enter(enemy.nums);
-            enemy.fillCards(turn,result[0],result[1]);
-            if(result[0] == 4){
-                System.out.println("CLEAR");
-                fill(255,34,12);
-                text("CLEAR", 285, 30);
-                game = false;
+            myturn.colorInit();
+            if(!myturn.isError(myturn.myColors)) {
+                enemy.fillCards(turn,result[0],result[1]);
+                if(result[0] == 4){
+                    System.out.println("CLEAR");
+                    fill(255,34,12);
+                    text("CLEAR", 285, 30);
+                    game = false;
+                }
+                turn++;
             }
-            turn++;
         }
     }else{
         if(mouseX > 265 && mouseX < 325 && mouseY > 425 && mouseY < 455) {
             result[0] = 0;
             result[1] = 0;
+            myturn.colorInit();
 
             fill(255);
             rect(0,0,width,height);
