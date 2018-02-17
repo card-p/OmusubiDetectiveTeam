@@ -40,6 +40,10 @@ void gameMenu(){
     for(int i=0; i<7; i++){
         fill(0);
         text(i+1, 25, rice_y[i]);
+        if(game == true){
+            fill(250,0,0);
+            text(turn+1, 25, rice_y[turn]);
+        }
     }
 
     // riceball
@@ -72,9 +76,9 @@ void gameMenu(){
 }
 
 void mouseClicked(){
-    if(game == true) myturn.selectColor(turn);
-    if(mouseX > 265 && mouseX < 325 && mouseY > 425 && mouseY < 455) {
-        if(game == true) {
+    if(game == true){
+        myturn.selectColor(turn);
+        if(mouseX > 265 && mouseX < 325 && mouseY > 425 && mouseY < 455) {
             result = myturn.enter(enemy.nums);
             enemy.fillCards(turn,result[0],result[1]);
             if(result[0] == 4){
@@ -84,10 +88,15 @@ void mouseClicked(){
                 game = false;
             }
             turn++;
-        }else {
+        }
+    }else{
+        if(mouseX > 265 && mouseX < 325 && mouseY > 425 && mouseY < 455) {
             result[0] = 0;
             result[1] = 0;
 
+            fill(255);
+            rect(0,0,width,height);
+            /*
             for(int i=0; i<=turn; i++) {
                 enemy.fillCards(i,0,0);
             }
@@ -105,12 +114,10 @@ void mouseClicked(){
                     ball.mkBall("init", i, j);
                 }
             }
-            
+           */ 
             turn = 0;
             game = true;
-
         }
     }
+    
 }
-
-
