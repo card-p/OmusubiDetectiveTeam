@@ -1,9 +1,10 @@
 public class Enemy extends GameSys{
-    ArrayList<Integer> nums= new ArrayList<Integer>();
+    ArrayList<Integer> nums = new ArrayList<Integer>();
     int i= 0, num;
     int ckeep[] = new int[3];
 
     public Enemy() {
+    /*
         Random rand = new Random();
         while(i < 4) {
             num = rand.nextInt(7);
@@ -13,6 +14,23 @@ public class Enemy extends GameSys{
             }
         }
         i=0;
+    */
+    }
+
+    public void mkEnemy(){
+        Random rand = new Random();
+        //while(i < 4) {
+        while(nums.size() < 4) {
+            num = rand.nextInt(7);
+            if(!nums.contains(num)){ 
+                nums.add(num);
+            }
+        }
+    }
+
+    public void removeEnemy(){
+       // nums.remove(0);
+        nums.clear();
     }
 
     public void blackOut(boolean b) {

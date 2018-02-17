@@ -56,7 +56,7 @@ void startGamen(){
 void gameMenu(){
     fill(0);
     line(0,60,width,60);
-    enemy.blackOut(false); // gameをfalseにすると正解表示
+    enemy.blackOut(game); // gameをfalseにすると正解表示
 
 
     // number
@@ -102,6 +102,7 @@ void mouseClicked(){
     if(idou == 1){
         if(mouseX > (width/2 -35) && mouseX < (width/2 + 35) && mouseY > height*2/3 && mouseY < (height*2/3  + 25)){
             idou = 2;
+            enemy.mkEnemy();
             background(255);
         }
     }
@@ -110,7 +111,6 @@ void mouseClicked(){
         myturn.selectColor(turn);
         if(mouseX > 265 && mouseX < 325 && mouseY > 425 && mouseY < 455) {
             result = myturn.enter(enemy.nums);
-            myturn.colorInit();
             if(!myturn.isError(myturn.myColors)) {
                 enemy.fillCards(turn,result[0],result[1]);
                 if(result[0] == 4){
@@ -120,6 +120,7 @@ void mouseClicked(){
                     game = false;
                 }
                 turn++;
+                myturn.colorInit();
             }
         }
     }else{
@@ -128,6 +129,8 @@ void mouseClicked(){
             result[1] = 0;
             myturn.colorInit();
 
+            enemy.removeEnemy();
+            enemy.mkEnemy();
             fill(255);
             rect(0,0,width,height);
             /*
